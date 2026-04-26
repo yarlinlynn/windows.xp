@@ -18,13 +18,32 @@
 </head>
 <body>
 
-  <!-- loader screen -->
-  <div id="loader-screen">
+  <!-- black overlay -->
+  <div id="black-overlay" class="hidden"></div>
 
+  <!-- loader screen -->
+  <div id="bootUp-screen" class="active">
+
+    <div class="container">
+      <div class="logo">
+        <img src="/assets/images/logo and wallpaper/windows.png" alt="Windows xp logo"/>
+      </div>
+
+      <div class="loader">
+        <span class="square"></span>
+        <span class="square"></span>
+        <span class="square"></span>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>Copyright 2026</span>
+      <p>Microsoft Corporation</p>
+    </div>
   </div>
 
   <!-- login screen -->
-  <div id="login-screen"></div>
+  <div id="login-screen" class="hidden"></div>
 
   <!-- main portfolio screen: heart of document -->
   <main id="homepage">
