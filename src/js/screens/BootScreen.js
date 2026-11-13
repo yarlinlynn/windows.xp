@@ -31,4 +31,37 @@ export function BootScreen() {
     `;
 
     app.appendChild(screen);
+
+    const tl = gsap.timeline({
+        defaults: { ease: "power2.inOut" }
+    });
+
+    // 1. Stay on pure black longer (this is what you want)
+    tl.to({}, { duration: 2 })          // ← black screen pause (change this number)
+
+    // 2. Then fade the boot screen in
+    .to("#bootUp-screen", {
+        opacity: 1,
+        duration: 0.8,
+    })
+
+    // 3. Hold the logo + loader
+    .to({}, { duration: 10 })
+
+    // 4. Fade everything out
+    .to("#bootUp-screen", {
+        opacity: 0,
+        duration: 0.7,
+    })
+
+    // 5. Remove overlay
+    .to(".screen_overlay", {
+        opacity: 0,
+        duration: 2,
+        onComplete: () => {
+            screen.remove();
+            // HomeScreen();
+        }
+    });
+
 }
