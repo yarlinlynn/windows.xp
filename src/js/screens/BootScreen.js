@@ -1,4 +1,4 @@
-
+import { LoginScreen } from "./LoginScreen.js";
 
 export function BootScreen() {
     const app = document.getElementById("app");
@@ -60,7 +60,7 @@ export function BootScreen() {
         duration: 2,
         onComplete: () => {
             screen.remove();
-            // HomeScreen();
+            LoginScreen();
         }
     });
 
