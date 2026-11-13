@@ -1,3 +1,9 @@
 
+// import components:
+import { BootScreen } from "./screens/BootScreen.js";
 
-document.addEventListener("DOMContentLoaded", () => {});
+// import component funcationality:
+
+document.addEventListener("DOMContentLoaded", () => {
+    BootScreen();
+});
