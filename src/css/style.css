@@ -21,7 +21,6 @@ html, body {
 }
 
 #bootUp-screen {
-    /* display: none; */
     opacity: 0;
     display: flex;
     align-items: center;
@@ -99,6 +98,21 @@ html, body {
 
 .copyright_trademark img { width: 6rem; }
 
+@media screen and (min-width: 700px) {
+
+    .logo_container { text-align: center; }
+  
+    .logo_container img { width: 80%; }
+
+    .copyright_trademark > p { font-size: 16px; }
+
+    .copyright_trademark img { width: 10rem; }
+}
+
+@media screen and (min-width: 1000px) {
+    .logo_container img { width: 55%; }
+}
+
 
 .login-screen {
     position: fixed;
@@ -162,3 +176,4 @@ html, body {
     pointer-events: none;
     z-index: 0;
 }
+
