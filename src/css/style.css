@@ -1,19 +1,4 @@
-
-*,
-*::before,
-*::after{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    width: 100dvw;
-    height: 100dvh;
-    overflow: hidden;
-    background: rgb(0, 0, 0);
-    font-family: Tahoma, Arial, sans-serif;
-}
+@import "tailwindcss";
 
 /*-----------------------------------*\
 #BOOT UP SCREEN COMPONENT STYLES:
