@@ -12,7 +12,12 @@ html, body {
     height: 100dvh;
     overflow: hidden;
     background: rgb(0, 0, 0);
+    font-family: Tahoma, Arial, sans-serif;
 }
+
+/*-----------------------------------*\
+#BOOT UP SCREEN COMPONENT STYLES:
+\*-----------------------------------*/
 
 .screen_overlay {
     width: 100%;
@@ -36,12 +41,12 @@ html, body {
 }
 
 .logo_container img { 
-    /* width: 75vw; */
-    width: 100%;
+    /* width: 100%; */
+    width: 390px;
+    height: auto;
 }
 
 .loader_container {
-    /* display: none; */
     width: 180px;
     height: 22px;
     border: 2px solid #b2b2b2;
@@ -52,7 +57,6 @@ html, body {
     font-size: 0;
     flex-shrink: 0;
     align-self: center;
-    /* margin-top: -1rem; */
     z-index: 3;
 }
 
@@ -102,17 +106,20 @@ html, body {
 
     .logo_container { text-align: center; }
   
-    .logo_container img { width: 80%; }
+    /* .logo_container img { width: 80%; } */
 
-    .copyright_trademark > p { font-size: 16px; }
+    .copyright_trademark > p { font-size: 13px; }
 
     .copyright_trademark img { width: 10rem; }
 }
 
-@media screen and (min-width: 1000px) {
+/* @media screen and (min-width: 1000px) {
     .logo_container img { width: 55%; }
-}
+} */
 
+/*-----------------------------------*\
+#LOGIN SCREEN COMPONENT STYLES:
+\*-----------------------------------*/
 
 .login-screen {
     position: fixed;
@@ -150,7 +157,7 @@ html, body {
 }
 
 .inner_container {
-    background-color: #587cdb;
+    background-color: #5c7ddf;
     position: absolute;
     inset: 100px 0;
 }
@@ -164,16 +171,214 @@ html, body {
     height: 100%;
 }
 
+.login_conatiner .login_logo {
+    position: absolute;
+    left: 50%;
+    transform: translate(-100%, -50%);
+    text-align: center;
+}
+
+.login_conatiner .login_logo img { 
+    width: auto;
+    height: 90px; 
+}
+
+.login_conatiner .login_logo p { font-size: 12px; }
+
 .login-screen .divider {
     position: absolute;
     top: 20%;
     bottom: 20%;
-    left: 50%;
+    left: 55%;
     transform: translateX(-50%);
-    width: var(--login-divider-width);
+    width: 2px; 
     background: linear-gradient(180deg, rgba(186, 215, 248, 0), #bad7f8 40%, #bad7f8 60%, rgba(186, 215, 248, 0));
-    opacity: var(--login-separator-opacity);
+    opacity: 0.35;
     pointer-events: none;
     z-index: 0;
 }
+
+.login_conatiner .login_profile  {
+    position: absolute;
+    left: 50%;
+    transform: translate(15%, -60%);
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.user {
+    width: auto;
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 18px 10px 10px;
+    margin: 20px 0;
+    border-radius: 6px;
+    opacity: 1;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    min-width: 260px;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: none;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+    border: none;
+    background: transparent;
+}
+
+.user:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #113fa6, #194db8 40%, #587cdb);
+    opacity: 0;
+    transition: none;
+    z-index: -1;
+    border-radius: inherit;
+}
+
+.user:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(186, 215, 248, .55);
+    border-radius: inherit;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    transition: none;
+    -webkit-mask-image: linear-gradient(90deg, #000, #000 42%, transparent 92%);
+    mask-image: linear-gradient(90deg, #000, #000 42%, transparent 92%);
+}
+
+.login_conatiner .login_profile:hover .user:before, 
+.login_conatiner .login_profile:hover .user:after{
+    transition: opacity 70ms linear;
+    opacity: .92;
+}
+
+.login_conatiner .login_profile:hover .user_avatar img {
+    border-color: #fdbd32;
+    transition: border-color 70ms linear, box-shadow 70ms linear;
+}
+
+.login_conatiner .login_profile:hover .profile_details p:last-child {
+    color: #fdbd32;
+}
+
+.user_avatar {
+    display: flex;
+    flex-shrink: 0;
+    line-height: 0;
+}
+
+.user_avatar img {
+    display: block;
+    width: 50px;
+    height: 50px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 3px;
+    border: 3px solid #fff;
+    box-shadow: 1px 1px rgba(0, 0, 0, .06), 1px 2px 3px rgba(0, 0, 0, .14);
+    transition: none;
+}
+
+.profile_details {
+    margin-left: 14px;
+    width: 200px;
+    margin-top: 11px;
+    text-align: justify;
+    font-family: Tahoma, Arial, sans-serif;
+    display: none;
+}
+
+.profile_details p:first-child {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0 0 2px;
+    letter-spacing: .25px;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .14);
+}
+
+.profile_details p:last-child {
+    font-size: 12px;
+    font-weight: 700;
+    color: navy;
+    line-height: 1.2;
+    transition: color .08s ease-out;
+    margin-top: 0;
+    margin-left: 2px;
+}
+
+.restart_btn, .bottom_text {
+    position: fixed;
+    bottom: 35px;
+    display: flex;
+}
+
+.restart_btn {
+    left: 50%;
+    transform: translate(-50%, 0%);
+    align-items: center;
+}
+
+.restart_btn img {
+    width: 32px;
+    height: 32px;
+    opacity: .8;
+    transition: opacity .2s ease;
+    margin-right: 8px;
+}
+
+.restart_btn div:last-child {
+    font-size: 13px;
+    color: #eff1ed;
+    font-weight: 500;
+}
+
+.bottom_text {
+    right: 50px;
+    flex-direction: column;
+    display: none;
+}
+
+.bottom_text p {
+    font-size: 12px;
+    margin-top: 1px;
+}
+
+@media screen and (min-width: 700px) {
+
+    .login_conatiner .login_logo { transform: translate(-100%, -50%); }
+
+    .login_conatiner .login_logo img { height: 162px; }
+
+    .login_conatiner .login_profile  { transform: translate(15%, -60%); }
+
+    .login-screen .divider { left: 50%; }
+
+    .user_avatar img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .profile_details, .bottom_text { display: block; }
+
+    .restart_btn { 
+        left: 50px; 
+        transform: translate(0%, 0%);
+    }
+}
+
 
