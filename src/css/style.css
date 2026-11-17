@@ -4,57 +4,6 @@
 #BOOT UP SCREEN COMPONENT STYLES:
 \*-----------------------------------*/
 
-.screen_overlay {
-    width: 100%;
-    height: 100vh;
-    background: rgb(0, 0, 0);
-}
-
-#bootUp-screen {
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    color: rgb(255, 255, 255);
-}
-
-
-.logo_container {
-    margin-top: -10rem;
-    margin-bottom: 1rem;
-}
-
-.logo_container img { 
-    /* width: 100%; */
-    width: 390px;
-    height: auto;
-}
-
-.loader_container {
-    width: 180px;
-    height: 22px;
-    border: 2px solid #b2b2b2;
-    border-radius: 7px;
-    margin: 0 auto;
-    padding: 2px 1px;
-    overflow: hidden;
-    font-size: 0;
-    flex-shrink: 0;
-    align-self: center;
-    z-index: 3;
-}
-
-.square {
-    width: 9px;
-    height: 100%;
-    background: linear-gradient(to bottom, #2838c7 0, #5979ef 17%, #869ef3 32%, #869ef3 45%, #5979ef 59%, #2838c7 100%);
-    display: inline-block;
-    margin-right: 2px;
-    animation: loading 2s infinite;
-    animation-timing-function: linear;
-}
-
 @keyframes loading {
     0% {
     transform: translate(-30px);
@@ -65,42 +14,15 @@
     }
 }
 
-.copyright_trademark {
-    position: fixed;
-    bottom: 1rem;
-    left: 50%;
-    transform: translate(-50%, 0);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    gap: 1.5rem;
-    width: 100vw;
-    padding-inline: 1rem;
+.square {
+    width: 9px;
+    height: 100%;
+    background: linear-gradient(to bottom, #2838c7 0, #5979ef 17%, #869ef3 32%, #869ef3 45%, #5979ef 59%, #2838c7 100%);
+    display: inline-block;
+    /* margin-right: 2px; */
+    animation: loading 2s infinite;
+    animation-timing-function: linear;
 }
-
-.copyright_trademark > p { 
-    font-size: 10px; 
-    display: flex;
-    flex-direction: column;
-}
-
-.copyright_trademark img { width: 6rem; }
-
-@media screen and (min-width: 700px) {
-
-    .logo_container { text-align: center; }
-  
-    /* .logo_container img { width: 80%; } */
-
-    .copyright_trademark > p { font-size: 13px; }
-
-    .copyright_trademark img { width: 10rem; }
-}
-
-/* @media screen and (min-width: 1000px) {
-    .logo_container img { width: 55%; }
-} */
 
 /*-----------------------------------*\
 #LOGIN SCREEN COMPONENT STYLES:

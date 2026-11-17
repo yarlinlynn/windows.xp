@@ -5,28 +5,41 @@ export function BootScreen() {
     app.innerHTML = "";
 
     const screen = document.createElement("div");
-    screen.className = "screen_overlay";
+    screen.className = "fixed inset-0 bg-black z-50";
     screen.innerHTML = `
-        <div id="bootUp-screen">
-            <div style="position: relative;">
-                <div class="logo_container">
-                    <h1 style="display: none;">Boot Up Screen</h1>
-                    <img src="../public/images/logo&background/windows_logo(dark).jpg" alt="Windows.xp Logo"/>
+        <div id="bootUp-screen" 
+            class="flex items-center justify-center h-screen text-white"
+        >
+            <div class="relative">
+
+                <!-- Logo -->
+                <div class="-mt-40 mb-4 text-center">
+                    <img src="../public/images/logo&background/windows_logo(dark).jpg" 
+                        alt="Windows.xp Logo"
+                        class="w-[390px] md:w-[500px] h-auto mx-auto"
+                    />
                 </div>
 
-                <div class="loader_container">
+                <!-- Loader -->
+                <div class="w-[180px] h-[22px] border-2 border-[#b2b2b2] rounded-[7px] mx-auto p-[2px_1px] overflow-hidden flex-shrink-0 self-center z-[3]">
                     <span class="square"></span>
                     <span class="square"></span>
                     <span class="square"></span>
-                <div>
+                </div>
             </div>
-            <div class="copyright_trademark">
-                <p>
+
+            <!-- Copyright -->
+            <div class="fixed bottom-4 left-1/2 -translate-1/2 flex items-center justify-between gap-6 w-screen px-20">
+                <p class="hidden text-[10px] md:text-[13px] md:flex flex-col">
                     <span>Copyright &copy; yarlinlynn 2026</span>
                     <span>Microsoft inspired Portfolio</span>
                 </p>
-                <img src="../public/images/logo&background/portfolio.webp" alt="Portfolio Trademark"/>
+                <img src="../public/images/logo&background/portfolio.webp" 
+                    alt="Portfolio Trademark"
+                    class="w-24 m-auto md:w-40 md:m-0"
+                />
             </div>
+            
         </div>
     `;
 
@@ -36,31 +49,22 @@ export function BootScreen() {
         defaults: { ease: "power2.inOut" }
     });
 
-    // 1. Stay on pure black longer (this is what you want)
-    tl.to({}, { duration: 2 })          // ← black screen pause (change this number)
-
-    // 2. Then fade the boot screen in
-    .to("#bootUp-screen", {
-        opacity: 1,
-        duration: 0.8,
-    })
-
-    // 3. Hold the logo + loader
-    .to({}, { duration: 10 })
-
-    // 4. Fade everything out
-    .to("#bootUp-screen", {
+    tl.to({}, { duration: 2 }) // starts of as black screen
+      .to("#bootUp-screen", { 
+        opacity: 1, 
+        duration: 0.8 
+      }) // fades boot_up screen in 
+      .to({}, { duration: 10 }) // pauses on boot_screen
+      .to("#bootUp-screen", { 
+        opacity: 0, 
+        duration: 0.7 
+      }) // fades boot_up screen out
+      .to(".screen_overlay", {
         opacity: 0,
-        duration: 0.7,
-    })
-
-    // 5. Remove overlay
-    .to(".screen_overlay", {
-        opacity: 0,
-        duration: 2,
+        duration: 1.5, // display black screen again
         onComplete: () => {
             screen.remove();
-            LoginScreen();
+            LoginScreen(); // then after 1.5 secs displays login screen
         }
     });
 
